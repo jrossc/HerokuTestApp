@@ -1,0 +1,49 @@
+﻿<!DOCTYPE HTML>
+<html ng-app="MainApp">
+<head>
+<title>MVA Angular Tutorial</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="favicon.png" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body ng-controller="MainController">
+    <div class="jumbotron text-center"> 
+        <h1>MVA Angular Tutorial</h1>
+    </div>
+    <h2>Evangelists</h2>
+    <!-- <ul id="evangelists" >
+        <li ng-repeat="person in people">Name: {{person.name}}, Location: {{person.location}}</li>
+    </ul> -->
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Location</th>
+            </tr>
+        </thead>
+        <tbody ng-repeat="person in people">
+            <tr>
+                <td>{{person.name}}</td>
+                <td>{{person.location}}</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <h2>Add an Evangelist</h2>
+    <form name="userform">
+    <p>Name:     <input type="text" id="name" class="form-control" ng-model="user.name" /></p>
+    <p>Location: <input type="text" id="location" class="form-control" ng-model="user.location"/></p>
+    <button id="btn-add-evangelist" class="btn btn-default btn" ng-click="addName(user)">Add to list</button>
+    <button id="btn-del-evangelist" class="btn btn-default btn" ng-click="delName(user);">Delete User</button>
+   </form>
+
+  
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js">   </script> 
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="main-app.start.js"></script>
+</body>
+</html>

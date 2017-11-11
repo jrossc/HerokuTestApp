@@ -1,0 +1,32 @@
+{
+  "name": "node-MVA",
+  "version": "0.0.0",
+  "description": "Dave Voyles' MVA application with NodeJS as backend.",
+  "main": "server.js",
+  "author": "Scotch",
+  "engines"
+  {
+	"node": "8.9.1"
+  },
+  "dependencies": {
+	"ejs": "2.5.6",
+    "body-parser": "~1.5.2",
+    "express": "~4.7.2",
+    "method-override": "~2.1.2",
+    "mongodb": "^2.2.33",
+    "mongoose": "~3.6.2",
+    "morgan": "~1.2.2",
+    "nodemon": "^1.12.1"
+  },
+   "repository": {
+    "type": "git",
+    "url": "https://github.com/JosephRossCajulis/HerokuTestApp"
+  },
+    "keywords": [
+    "node",
+    "heroku",
+    "express",
+	"DVNodeJS"
+  ],
+  "license": "MIT"
+}
