@@ -4,7 +4,7 @@
   "description": "Dave Voyles' MVA application with NodeJS as backend.",
   "main": "server.js",
   "author": "Scotch",
-  "engines"
+  "engines":
   {
 	"node": "8.9.1"
   },
