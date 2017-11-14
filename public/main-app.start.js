@@ -1,13 +1,13 @@
 ﻿"use strict";
 
-angular.module('MainApp', [
+angular.module('MainApp', ['ui.bootstrap', 'ngAnimate'
 	])
 
 .controller("MainController", function ($scope, $http) {
 	//initialize scope variables
 	$scope.people = [];
-	$scope._name = "Default Name";
-	$scope._location = "Default Location";
+	$scope._name = "";
+	$scope._location = "";
 	$scope.user = {
 		name: function (theName) {
 			if (angular.isDefined(theName)) {
@@ -24,6 +24,15 @@ angular.module('MainApp', [
 		}
 		()
 	};
+
+	$scope.alerts = [];
+	$scope.addAlert = function(type, message) {
+			$scope.alerts.push({type: type, msg: message});
+		};
+
+	$scope.CloseSuccessByTimeout = function(index){
+						$scope.alerts.splice(index, 1); 
+	}
 
 	//initialize config for headers
 	var config = {
@@ -46,7 +55,7 @@ angular.module('MainApp', [
 
 	// add in resource
 	function addName(user) {
-		var confirmres = confirm("about to post, Continue?");
+		var confirmres = confirm("You are about to add data, Continue?");
 
 		if (confirmres == true) {
 			//check if user exists
@@ -67,13 +76,15 @@ angular.module('MainApp', [
 				var obj = $scope.retData;
 				if (obj.data.length > 0) //if there is, alert
 				{
-					alert('User exists!');
+					//alert('User exists!');
+					$scope.addAlert('danger', 'User exists in the database!');
 				} else //if none, then POST
 				{
 				$http.post('/api/users', user, config)
 				.then(function (res) {
 					console.log(res.data);
-					alert('Added successfully!');
+					//alert('Added successfully!');
+					$scope.addAlert('success', 'Added successfully!');
 					$scope.getNames();
 				})
 				.catch (function (res) {
@@ -110,14 +121,16 @@ angular.module('MainApp', [
 				$scope.retData = res;
 				var obj = $scope.retData;
 				if (obj.data.length == 0) {
-					alert('No data found');
+					//alert('No data found');
+					$scope.addAlert('danger', 'No data found!');
 				} else {
 					angular.forEach(obj.data, function (item) {
 						//perform delete after getting the ID and append it to url
 						$http.delete ('/api/users/' + item._id, config)
 						.then(function (res) {
+							$scope.addAlert('success','Item with Item ID: ' + item._id + ' deleted');
 							$scope.getNames();
-							alert('item with item ID: ' + item._id + ' deleted');
+							//alert('item with item ID: ' + item._id + ' deleted');
 						});
 					});
 				}
