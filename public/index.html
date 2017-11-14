@@ -1,59 +1,50 @@
 ﻿<!DOCTYPE HTML>
 <html ng-app="MainApp">
-<head>
-<title>Angular Tutorial</title>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-animate.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.1.2/ui-bootstrap.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.1.2/ui-bootstrap-tpls.js"></script>
-<link rel="icon" type="image/png" href="favicon.png" />
-<link href="style.css" rel="stylesheet">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-</head>
-<body ng-controller="MainController">
+  <head>
+    <title>Angular Tutorial</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-animate.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.1.2/ui-bootstrap.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.1.2/ui-bootstrap-tpls.js"></script>
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link href="style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  </head>
+  <body ng-controller="MainController">
     <div class ='repeat-item' uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" dismiss-on-timeout="5000" close="CloseSuccessByTimeout($index)">
-                {{alert.msg}}
-              </div>
-    <div class="jumbotron text-center"> 
-        <h1>MVA Angular Tutorial</h1>
+      {{alert.msg}}
     </div>
- 
-
+    <div class="jumbotron text-center">
+      <h1>MVA Angular Tutorial</h1>
+    </div>
     <div class="col-sm-4">
-            <h2>Add an Evangelist</h2>
-            <form name="userform">
-                    <p>Name:     <input type="text" id="name" class="form-control" ng-model="user.name" ng-click="check(user.name)" /></p>
-                    <p>Location: <input type="text" id="location" class="form-control" ng-model="user.location" ng-click="check(user.location)"/></p>
-                    <button id="btn-add-evangelist" class="btn btn-primary" ng-click="addName(user)">Add to list</button>
-                    <button id="btn-del-evangelist" class="btn btn-default btn" ng-click="delName(user);">Delete User</button>
-                   </form>                
+      <h2>Add an Evangelist</h2>
+      <form name="userform">
+        <p>Name:     <input type="text" id="name" class="form-control" ng-model="user.name" ng-click="check(user.name)" /></p>
+        <p>Location: <input type="text" id="location" class="form-control" ng-model="user.location" ng-click="check(user.location)"/></p>
+        <button id="btn-add-evangelist" class="btn btn-primary" ng-click="addName(user)">Add to list</button>
+        <button id="btn-del-evangelist" class="btn btn-default btn" ng-click="delName(user);">Delete User</button>
+      </form>
     </div>
-
     <div class="col-sm-4">
-            <h2>Evangelists</h2>
-            <table class="table table-bordered table-expand">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Location</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr ng-repeat="person in people">
-                            <td>{{person.name}}</td>
-                            <td>{{person.location}}</td>
-                        </tr>
-                    </tbody>
-                </table>
+      <h2>Evangelists</h2>
+      <table class="table table-bordered table-expand">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Location</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="person in people">
+            <td>{{person.name}}</td>
+            <td>{{person.location}}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
- 
-  
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js">   </script> 
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script src="main-app.start.js"></script>
-</body>
+  </body>
 </html>
