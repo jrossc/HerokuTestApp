@@ -9,6 +9,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-animate.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.1.2/ui-bootstrap.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.1.2/ui-bootstrap-tpls.js"></script>
+    <script src="main-app.start.js"></script>
     <link rel="icon" type="image/png" href="favicon.png" />
     <link href="style.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -23,8 +24,8 @@
     <div class="col-sm-4">
       <h2>Add an Evangelist</h2>
       <form name="userform">
-        <p>Name:     <input type="text" id="name" class="form-control" ng-model="user.name" ng-click="check(user.name)" /></p>
-        <p>Location: <input type="text" id="location" class="form-control" ng-model="user.location" ng-click="check(user.location)"/></p>
+        <p>Name:     <input type="text" id="name" ng-model="user.name" ng-click="check(user.name)" /></p>
+        <p>Location: <input type="text" id="location" ng-model="user.location" ng-click="check(user.location)"/></p>
         <button id="btn-add-evangelist" class="btn btn-primary" ng-click="addName(user)">Add to list</button>
         <button id="btn-del-evangelist" class="btn btn-default btn" ng-click="delName(user);">Delete User</button>
       </form>
