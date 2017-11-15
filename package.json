@@ -1,32 +1,33 @@
 {
-  "name": "node-MVA",
-  "version": "0.0.0",
-  "description": "Dave Voyles' MVA application with NodeJS as backend.",
+  "name": "passport-sample",
+  "version": "1.0.0",
+  "description": "Passport Sample Application with Integration of MVA Angular Tutorial upon login",
   "main": "server.js",
-  "author": "Scotch",
-  "engines": {
-    "node": "8.9.1"
-  },
   "dependencies": {
-    "body-parser": "~1.5.2",
-    "ejs": "2.5.6",
-    "express": "~4.7.2",
-    "foreman": "^2.0.0",
-    "method-override": "~2.1.2",
-    "mongodb": "^2.2.33",
+    "express": "~4.0.0",
+    "ejs": "~0.8.5",
     "mongoose": "~4.13.1",
-    "morgan": "~1.2.2",
-    "nodemon": "^1.12.1"
+    "passport": "~0.1.17",
+    "passport-local": "~0.1.6",
+    "passport-facebook": "~1.0.2",
+    "passport-twitter": "~1.0.2",
+    "passport-google-oauth": "~0.1.5",
+    "connect-flash": "~0.1.1",
+    "bcrypt-nodejs": "latest",
+    "morgan": "~1.0.0",
+    "body-parser": "~1.0.0",
+    "cookie-parser": "~1.0.0",
+    "method-override": "~1.0.0",
+    "express-session": "~1.0.0",
+	"foreman":"*"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/JosephRossCajulis/HerokuTestApp"
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "node",
-    "heroku",
-    "express",
-    "DVNodeJS"
+    "passport-sample",
+    "JRBC-passport"
   ],
+  "author": "Joseph Ross Cajulis",
   "license": "MIT"
 }
