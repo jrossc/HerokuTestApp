@@ -11,9 +11,22 @@ module.exports = function(app, passport) {
         // =====================================
         // HOME PAGE (with login links) ========
         // =====================================
-        app.get('/', function(req, res) {
-            res.render('index.ejs'); // load the index.ejs file
-        });
+        // app.get('/', function(req, res) {
+        //         res.render('index.ejs'); // load the index.ejs file        
+        // });
+
+        app.get('/', isLoggedIn, function(req, res) {
+            if (req.user != null)
+            {
+                res.render('profile.ejs', {
+                    user : req.user // get the user out of session and pass to template
+                });
+            }
+            else{
+                res.render('index.ejs');
+            }
+
+    });
     
         // =====================================
         // LOGIN ===============================
@@ -117,7 +130,8 @@ module.exports = function(app, passport) {
         // =====================================
         app.get('/logout', function(req, res) {
             req.logout();
-            res.redirect('/');
+           // res.redirect('/');
+           res.render('index.ejs');
         });
     };
     
@@ -126,8 +140,13 @@ module.exports = function(app, passport) {
     
         // if user is authenticated in the session, carry on 
         if (req.isAuthenticated())
+        {
+           // res.redirect('profile');
             return next();
+        }
+            
     
         // if they aren't redirect them to the home page
-        res.redirect('/');
+        //res.redirect('/');
+        res.render('index.ejs');
     }
