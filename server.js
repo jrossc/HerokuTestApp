@@ -16,12 +16,15 @@ var session      = require('express-session');
 var MongoStore   = require('connect-mongo')(session);
 
 var path = require('path'); //join method
-
 var configDB = require('./config/database.js');
+
+//pass passport for configuration
+require('./config/passport')(passport); 
+
 // configuration ===============================================================
 mongoose.connect(configDB.url, {useMongoClient : true}); // connect to our database
 
-require('./config/passport')(passport); // pass passport for configuration
+
 
 // set up our express application
 app.use(express.static(path.join(__dirname, 'views')));    //angular and css files
