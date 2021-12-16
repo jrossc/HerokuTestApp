@@ -16,7 +16,7 @@
     "express-session": "^1.0.4",
     "foreman": "*",
     "method-override": "~1.0.0",
-    "mongoose": "~4.4",
+    "mongoose": "^6.1.2",
     "morgan": "~1.0.0",
     "passport": "~0.1.17",
     "passport-facebook": "~1.0.2",

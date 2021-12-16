@@ -13,7 +13,8 @@ var morgan       = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
 var session      = require('express-session');
-var MongoStore   = require('connect-mongo')(session);
+//var MongoStore   = require('connect-mongo')(session);
+var MongoStore   = require('connect-mongo');
 
 var path = require('path'); //join method
 var configDB = require('./config/database.js');
@@ -22,8 +23,8 @@ var configDB = require('./config/database.js');
 require('./config/passport')(passport); 
 
 // configuration ===============================================================
-mongoose.connect(configDB.url, {useMongoClient : true}); // connect to our database
-
+//mongoose.connect(configDB.url, {useMongoClient : true}); // connect to our database - not supported on mongoose upgrade to 6.1.2
+mongoose.connect(configDB.url);
 
 
 // set up our express application
@@ -35,7 +36,8 @@ app.set('view engine', 'ejs'); // set up ejs for templating
 
 //required for passport
 app.use(session({
-    store: new MongoStore({ mongooseConnection: mongoose.connection,  ttl: 14 * 24 * 60 * 60, autoRemove:'native', collection:'AllSessions' }),
+    // store: new MongoStore({ mongooseConnection: mongoose.connection,  ttl: 14 * 24 * 60 * 60, autoRemove:'native', collection:'AllSessions' }),
+    store: MongoStore.create({mongoUrl: configDB.url}),
     secret: 'foo'
 }));
 app.use(passport.initialize());
@@ -47,11 +49,10 @@ app.use(flash());
 // routes ======================================================================
 require('./app/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
 
-
 //log all other requests here
-    app.get('*', (req, res) => {
-        res.sendFile(path.join(__dirname, 'views'));
-    });
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views'));
+});
 
 // launch ======================================================================
 app.listen(port);
